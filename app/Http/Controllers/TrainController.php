@@ -9,7 +9,7 @@ use App\Models\Train;
 class TrainController extends Controller
 {
     public function index() {
-        $trains = Train::whereDate('departure_time', today()->toDateString())->paginate();
+        $trains = Train::paginate(25);
 
         return view('home', compact('trains'));
     }
